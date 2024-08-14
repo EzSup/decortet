@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.header {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.3), 
+    rgba(0, 0, 0, 0.3)
+  ), url('/src/assets/header-bg1.jpg');
+  
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 0px 7px 10px rgba(94, 94, 94, 0.5);
+  text-align: center;
+  text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.527);
+  margin: 0 auto;
+}
+
+
+.header h1{
+  font-size: 80px;
+  font-weight: 600;  
+  /*padding: 0 20px 10px 10px;*/
+}
+
+.header h2{
+  font-size: 36px;
+  font-weight: 100;
+  padding: 0 20px 10px 10px;
+}
+
+.header h3{
+  font-size: 24px;
+  font-weight: 200;
+  padding: 0 20px 10px 10px;
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.151); /* Чорний фільтр з прозорістю 50% */
+  pointer-events: none; /* Забезпечує, що фільтр не перекриває зображення при натисканні */
+}
+
+.header-content{  
+  color: #FFFFFF;
+  margin-top: 24vh;
+  display: inline-block;
+  align-content: center;
+  justify-content: center;
+}
+
+.mentions-container{
+  margin: 20px 6vw;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 88%;
+}
+
+.mentions-container > *{
+  padding: 10px 20px 8px 20px;
+  margin: 10px;
+}
+
+.mentions-container > img{
+  height: 300px;
+  margin: 20px 40px;
+  border-radius: 6px;
+  background-color: aliceblue;
+  padding: 0;
+  filter: brightness(0.8);
+  transition: filter 0.5s;
+}
+
+.mentions-container > img:hover{
+  filter: none;
+}
+
+.mention{
+  width: max-content;
+  box-shadow: 0 10px 20px rgba(94, 94, 94, 0.5);
+  background-color: #F5F5F5;
+  align-content: center;
+}
+
+.mention svg{
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+#images{
+  background-color: #E5F0ED;
+}
+
+#images-header > *{
+  margin: auto 3px;
+}
+#images-header{
+  background-color: #E5F0ED;
+  width: max-content;
+  padding: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin: 0 0 0 10vw;
+  align-items: center;
+  display: flex;
+}

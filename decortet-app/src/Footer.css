@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+footer {
+    font-family: 'Montserrat', sans-serif;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px; /* Відстань між колонками */
+    background-color: #282A37;
+    color: white;
+    padding: 20px 20vw;
+}
+
+#footer-links > *{
+    margin: auto 3px;
+    color: white;
+}
+#footer-links > *:hover{
+    color: #4A9C80;
+}
+
+@media (max-width: 800px) {
+    footer {
+        grid-template-columns: 1fr; 
+    }
+}

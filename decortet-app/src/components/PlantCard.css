@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.card{
+    background-color: rgba(137,137,137,0.13);
+    padding: 10px;
+    width: 200px;
+    height: 300px;
+    align-content: center;
+    margin: 20px;
+    font-family:"Montserrat", sans-serif;
+    text-align: center;
+}
+
+.card:hover img{
+    transform: translateY(-5px);
+    box-shadow: 0px 60px 50px -60px rgba(0, 0, 0, 1);
+}
+
+.card img{
+    width: 180px;
+    margin: -50px 5px 14px 5px;
+    transition: all 0.5s;
+}
+
+.card h5, h6{
+    margin: 4px 0px;
+    font-weight: 800;
+}
+
+.card h5{
+    font-size: 16px;    
+}
+
+.card h6{
+    font-size: 14px;
+    color: #C4C4C4;
+}
+
+.card #buttons-row{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: center;   
+    margin-top: 10px; 
+}
+
+#buttons-row button{
+    box-shadow: 0 10px 20px rgba(94, 94, 94,0.5);
+    transition: all 0.3s;
+}
+
+#buttons-row button:hover{
+    transform: scale(1.03);
+}
+
+#buttons-row #buy{
+    border-radius: 5px;
+    padding: 0 20px;
+    max-width: 110px;
+    border: none;
+    margin: 5px;
+    background-color: #4A9C80;
+    color: #FFFDFD;
+    font-weight: 800;
+    text-align: center;
+    line-height: 0.9em;
+}
+
+
+
+
+#buttons-row #save{
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    border: none;
+    margin: 5px;
+    background-color: #FFFFFF;
+    color: #282A37;
+    padding: 3px;
+}
+
+#buttons-row p{
+    margin: auto 5px;    
+    font-weight: 600;   
+}
