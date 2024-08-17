@@ -12,7 +12,7 @@ interface ProductWithCount{
 }
 
 export async function GetMarketItems():Promise<Product[]> {
-        axios.get(`https://localhost:32768/User/Get`)
+        axios.get(`${apiLink}/User/Get`)
           .then((response: AxiosResponse<Product[]>) => {
             return response.data;
           });

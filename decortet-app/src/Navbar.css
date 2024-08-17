@@ -1,22 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-.navbar{
-    position: fixed;
-    top:0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: max-content;
-    height: 30px;
-    background-color: rgba(155, 155, 155, 0.3);
-    backdrop-filter: blur(5px);
-    z-index: 2;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    /* margin-top: 5px;
-    border-radius: 15px; */
-    color: white;
-    padding: 15px 10px 10px 10px;
-    font-family: 'Montserrat', sans-serif;
+.my-navbar{
+  position: fixed;
+  top:0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  background-color: rgba(155, 155, 155, 0.3);
+  backdrop-filter: blur(5px);
+  z-index: 2;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  /* margin-top: 5px;
+  border-radius: 15px; */
+  color: white;
+  padding: 15px 10px 10px 10px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .light-text{
@@ -41,7 +40,7 @@
   background-color: black !important; 
 }
 
-.navbar > * {
+.my-navbar > * {
     text-decoration: none;
     vertical-align: middle;
     margin: 0px 10px;
@@ -49,7 +48,7 @@
     font-weight: 500;
 }
 
-.navbar a::after {
+.my-navbar a::after {
     content: '';
     position: absolute;
     height: 1.25px;
@@ -60,7 +59,7 @@
     transform: translateX(-50%); /* Переміщує псевдоелемент назад на половину його ширини, щоб центр був точний */
   }
   
-  .navbar a:hover::after {
+  .my-navbar a:hover::after {
     width: 100%;
   }
 

@@ -5,6 +5,7 @@ import { clearCart, getCart } from './services/cartService';
 import { ProductWithCount } from './models/productModels';
 import { useState, useEffect } from 'react';
 import axios, { AxiosResponse } from 'axios';
+import Navbar from './Navbar';
 
 interface OrderData{
     Name?:string,
@@ -29,7 +30,7 @@ export default function CartPage(){
     }, [cartItems]);
 
     function calculateSum(items: ProductWithCount[]): number {
-        return items.reduce((total, item) => total + item.product.price * item.quantity, 0);
+        return items.reduce((total, item) => total + (item.product.price ?? 1) * item.quantity, 0);
     }
 
     const updateSum = () => {
@@ -63,6 +64,7 @@ export default function CartPage(){
 
     return(
         <>
+        <Navbar/>
             <div id='page'>  
                 <div id='cart-container'>
                     <CartContainer  cartItems={cartItems} onCartUpdate={updateSum}/>
@@ -102,7 +104,7 @@ function CartContainer({cartItems, onCartUpdate} : {cartItems: ProductWithCount[
         return(
             <>
             {cartItems.map(item => (
-                    <CartItem data={item} key={item.product.id} onQuantityChange={onCartUpdate}/>
+                    <CartItem data={item} key={item.product.id ?? 1} onQuantityChange={onCartUpdate}/>
                 ))} 
             </>
         )

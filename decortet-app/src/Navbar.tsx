@@ -7,11 +7,12 @@ export default function Navbar(){
     const cartItems = getCartItemsCount();
 
     return (
-    <div className='navbar'>
+    <div className='my-navbar'>
         <img src='src/assets/logo-nobg.svg' style={{width: "40px", margin: "-7px 0 0 0"}}/>
         <a href='/#header' className='pc-version'>Головна</a>
         <a href='/#catalog' className='pc-version'>Каталог</a>
         <a href='/#footer' className='pc-version'>Контакти</a>
+        <a href='/admin' className='pc-version'>Адмін</a>
         <a href='/#header' className='mobile-version'><House size={24} /></a>
         <a href='/#catalog'  className='mobile-version'><Storefront size={24} /></a>
         <a href='/#footer'  className='mobile-version'><NotePencil size={24} /></a>
@@ -23,7 +24,7 @@ export default function Navbar(){
 
 function updateNavbarTextColor(){    
     const header = document.getElementById('header');    
-    const navbar = document.querySelector('.navbar');
+    const navbar = document.querySelector('.my-navbar');
     if(header == undefined){
         navbar?.classList.remove('light-text');
             navbar?.classList.add('dark-text');
