@@ -1,10 +1,9 @@
 import './Navbar.css';
 import { ShoppingCart, House ,Storefront, NotePencil   } from '@phosphor-icons/react'
-import { getCart, getCartItemsCount } from './services/cartService';
-import { useState } from 'react';
+//import {  getCartItemsCount } from './services/cartService';
 
 export default function Navbar(){
-    const cartItems = getCartItemsCount();
+    //const cartItems = getCartItemsCount();
 
     return (
     <div className='my-navbar'>

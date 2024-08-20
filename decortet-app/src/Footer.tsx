@@ -1,4 +1,4 @@
-import { InstagramLogo, FacebookLogo, YoutubeLogo, TwitterLogo, Envelope } from '@phosphor-icons/react'
+import { InstagramLogo, FacebookLogo, YoutubeLogo,  Envelope } from '@phosphor-icons/react'
 import './Footer.css'
 
 

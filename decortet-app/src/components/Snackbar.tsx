@@ -1,17 +1,11 @@
-import React, { useEffect, useState } from 'react';
 import './Snackbar.css';
 import ReactDOMServer from 'react-dom/server';
 import { Warning, CheckFat } from '@phosphor-icons/react';
 
-interface SnackbarProps {
-    message: string;
-    success: boolean;
-    duration?: number; // Optional: Duration before the snackbar disappears
-}
 
-export default function Snackbar({ message, success, duration = 3000 }: SnackbarProps) {
+export default function Snackbar() {
     return (
-        <div id="snackbar" style={{backgroundColor: success ? "#4A9C80" : "#f95959"}}>
+        <div id="snackbar">
             <span id='snackbar-symbol'></span>
             <p id='snackbar-message'></p>
         </div>

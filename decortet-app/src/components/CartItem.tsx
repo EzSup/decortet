@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { Product, ProductWithCount } from "../models/productModels"
+import {  ProductWithCount } from "../models/productModels"
 import './CartItem.css'
 import { X, Plus, Minus } from "@phosphor-icons/react";
-import { addToCart, decreaseQuantity, increaseQuantity, removeItem } from "../services/cartService";
+import {  decreaseQuantity, increaseQuantity, removeItem } from "../services/cartService";
 
 interface CartCardProps{
     data: ProductWithCount;
@@ -13,11 +13,11 @@ interface CartCardProps{
 
 export default function CartItem({data, onQuantityChange} : CartCardProps){
     const [quantity, setQuantity] = useState(data.quantity);
-    const [amount, setAmount] = useState(data.product.price * quantity);
+    const [amount, setAmount] = useState(data.product.price ?? 1 * quantity);
     const id = `product-${data.product.id}`
 
     useEffect(() => {
-        setAmount(quantity * data.product.price);
+        setAmount(quantity * (data.product.price ?? 1));
         onQuantityChange();
     }, [quantity]);
 
@@ -31,7 +31,7 @@ export default function CartItem({data, onQuantityChange} : CartCardProps){
         }
         
         setQuantity(newQuantity);
-        setAmount(newQuantity * data.product.price);
+        setAmount(newQuantity * (data.product.price ?? 1));
     }
 
     function removeProduct(idParam:number){
@@ -46,7 +46,7 @@ export default function CartItem({data, onQuantityChange} : CartCardProps){
 
     return (
         <div className="cart-item" id={id}>      
-            <img src={data.product.photoLinks[0]}/>
+            <img src={data.product.photoLinks == undefined ? '' : data.product.photoLinks[0]}/>
             <div style={{display:"inline-block"}}>                     
                 <p><strong>{data.product.name}</strong></p>
                 <p><strong><i>Ціна: </i></strong>{data.product.price}₴</p>
@@ -57,7 +57,7 @@ export default function CartItem({data, onQuantityChange} : CartCardProps){
                     <button onClick={() => changeQuantity(true)}><Plus size={20}/></button>
                 </div>                
             </div> 
-            <button id="x-button" onClick={() => removeProduct(data.product.id)}><X size={16} weight="bold"/></button>
+            <button id="x-button" onClick={() => removeProduct(data.product.id ?? 0)}><X size={16} weight="bold"/></button>
         </div>
     );
 }

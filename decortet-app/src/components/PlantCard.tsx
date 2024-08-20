@@ -13,7 +13,7 @@ export default function PlantCard({data} : PlantCardProps) {
 
     return(
         <div className='card'>
-            <img src={data.photoLinks[0]} alt={data.name}/>
+            <img src={data.photoLinks == undefined ? '' : data.photoLinks[0]} alt={data.name}/>
             <h5>{data.name}</h5>
             <h6>{data.underheader}</h6>
             <div id='buttons-row'>

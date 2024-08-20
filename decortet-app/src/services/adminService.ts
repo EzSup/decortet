@@ -1,4 +1,4 @@
-import axios, { AxiosHeaders, AxiosResponse } from 'axios';
+import axios from 'axios';
 
 import { Product, ProductCreate } from '../models/productModels';
 
@@ -20,7 +20,7 @@ export async function PostProduct(object:ProductCreate) {
         }
     }
 
-    const response = axios.post(`${apiLink}/Admin/CreateProduct`, data,{
+    axios.post(`${apiLink}/Admin/CreateProduct`, data,{
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'multipart/form-data'

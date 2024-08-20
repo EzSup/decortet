@@ -1,8 +1,7 @@
-import { ChakraProvider, Container, Table, TableContainer, Tbody, Td, Th, Thead, Tr, 
+import { ChakraProvider,  Table, TableContainer, Tbody, Td, Th, Thead, Tr, 
     HStack, Button, Drawer, DrawerOverlay, DrawerContent, DrawerFooter, DrawerCloseButton, DrawerHeader, 
-    DrawerBody, Stack, Box, FormLabel, Input, InputGroup, InputLeftAddon, InputRightAddon, Textarea, Select,
+    DrawerBody, Stack, Box, FormLabel, Input, 
     Switch, Image} from "@chakra-ui/react";
-import { Form } from "react-router-dom";
 import { Product, ProductCreate } from "../models/productModels";
 import { useEffect, useState } from "react";
 import axios, { AxiosResponse } from "axios";

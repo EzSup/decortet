@@ -1,6 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
 import { Product } from '../models/productModels';
-import { json } from 'react-router-dom';
 import { ShowSnackbar } from '../components/Snackbar';
 
 const apiLink = "https://localhost:32768";

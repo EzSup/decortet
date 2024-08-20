@@ -20,7 +20,7 @@ interface OrderData{
 }
 
 export default function CartPage(){
-    const [cartItems, setCartItems] = useState<ProductWithCount[]>(getCart());
+    const [cartItems] = useState<ProductWithCount[]>(getCart());
     const [sum, setSum] = useState<number>(calculateSum(cartItems));
     const [showForm, setShowForm] = useState<boolean>(false);
     const [formData, setFormData] = useState<OrderData>();

@@ -48,7 +48,7 @@ function Index() {
         </div>
         <div className='mentions-container'>
           {products.map(product => (
-            <PlantCard data={product} key={product.id} />
+            <PlantCard data={product} key={product.id ?? 1} />
           ))}
         </div>
       </section>

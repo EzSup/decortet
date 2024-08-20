@@ -2,7 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import CartPage from './CartPage.tsx'
-import Navbar from './Navbar'
 import Snackbar from './components/Snackbar.tsx'
 import './style.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
@@ -27,7 +26,7 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <Snackbar message='Вітаю з новим сповіщенням!' success={false}/>
+    <Snackbar/>
     <RouterProvider router={router} />
   </React.StrictMode>,
 )
