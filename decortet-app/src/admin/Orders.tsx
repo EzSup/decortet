@@ -26,24 +26,25 @@ import {
 import { Product, ProductCreate } from "../models/productModels";
 import { useEffect, useState } from "react";
 import axios, { AxiosResponse } from "axios";
-import { GetProducts, PostProduct, PutProduct } from "../services/adminService";
+import { GetOrders, PostProduct, PutProduct } from "../services/adminService";
 import { Trash } from "@phosphor-icons/react";
+import { Order } from "../models/orderModels";
 
-export default function AdminPage() {
+export default function Orders() {
 	const [editProduct, setEditProduct] = useState<Product | null>(null);
 	const [createProduct, setCreateProduct] = useState<ProductCreate>();
-	const [products, setProducts] = useState<Product[]>([]);
+	const [orders, setOrders] = useState<Order[]>([]);
 	const [editOpen, setEditOpen] = useState(false);
 	const [createOpen, setCreateOpen] = useState(false);
 
 	useEffect(() => {
-		const fetchProducts = async () => {
-			setProducts(await GetProducts());
+		const fetchOrders = async () => {
+			setOrders(await GetOrders());
 		};
-		fetchProducts();
+		fetchOrders();
 	}, []);
 
-	function openEditBar(product: Product) {
+	function openEditBar(product: Order) {
 		setEditProduct(product);
 		setEditOpen(true);
 	}
@@ -81,12 +82,6 @@ export default function AdminPage() {
 		if (editProduct) PutProduct(editProduct);
 	};
 
-	function removeImage(link: string) {
-		if (!editProduct) return;
-		const updatedPhotoLinks = editProduct.photoLinks?.filter((x) => x !== link);
-		setEditProduct({ ...editProduct, photoLinks: updatedPhotoLinks });
-	}
-
 	return (
 		<>
 			<ChakraProvider>
@@ -98,23 +93,23 @@ export default function AdminPage() {
 						<Table variant="simple">
 							<Thead>
 								<Tr>
-									<Th>Назва</Th>
-									<Th>Ціна</Th>
-									<Th>Доступна</Th>
+									<Th>Замовник</Th>
+									<Th>Телефон</Th>
+									<Th>Сума</Th>
 									<Th>Редагувати</Th>
 									<Th>Видалити</Th>
 								</Tr>
 							</Thead>
 							<Tbody>
-								{products.map((prodct) => (
-									<Tr key={prodct.id}>
-										<Td>{prodct.name}</Td>
-										<Td>{prodct.price}</Td>
-										<Td>{prodct.available ? "ТАК" : "НІ"}</Td>
+								{orders.map((order) => (
+									<Tr key={order.id}>
+										<Td>{order.clientName}</Td>
+										<Td>{order.phone}</Td>
+										<Td>{order.totalSum}</Td>
 										<Td>
 											<Button
 												colorScheme="yellow"
-												onClick={() => openEditBar(prodct)}
+												onClick={() => openEditBar(order)}
 											>
 												Редагувати
 											</Button>
@@ -276,48 +271,6 @@ export default function AdminPage() {
 											value={editProduct?.description ?? ""}
 											onChange={handleChangeEdit}
 										/>
-									</Box>
-
-									<Box>
-										<FormLabel htmlFor="photoLinks">Фото</FormLabel>
-										<input
-											id="photos"
-											type="file"
-											accept=".jpg, .png, .webp"
-											onChange={handleChangeEdit}
-										/>
-										<Button colorScheme="purple" marginTop={3}>
-											Підтвердити відправку
-										</Button>
-										<div style={{ display: "flex", marginTop: "6px" }}>
-											{editProduct?.photoLinks?.map((image) => (
-												<div
-													key={image}
-													style={{
-														position: "relative",
-														display: "inline-block",
-													}}
-												>
-													<Button
-														onClick={() => {
-															removeImage(image);
-														}}
-														colorScheme="red"
-														style={{
-															position: "absolute",
-															top: 0,
-															right: 0,
-															zIndex: 1,
-															padding: 0,
-															justifyContent: "center",
-														}}
-													>
-														<Trash size={24} />{" "}
-													</Button>
-													<img src={image} width={100} />
-												</div>
-											))}
-										</div>
 									</Box>
 								</Stack>
 							</DrawerBody>
